@@ -1,6 +1,7 @@
+import React from "react";
 import { Link } from "react-router-dom";
 
-function transaction({ transaction, index }) {
+function Transaction({ transaction, index }) {
   console.log(transaction); // check console
 
   return (
@@ -20,4 +21,4 @@ function transaction({ transaction, index }) {
   );
 }
 
-export default Log;
+export default Transaction;
