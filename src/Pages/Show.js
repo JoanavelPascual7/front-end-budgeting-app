@@ -1,11 +1,11 @@
-import TransactionDetails from "../Components/TransactionDetails";
+import TransactionDetail from "../Components/TransactionDetail";
 
 function Show() {
   return (
     <div className="Show">
       <h2>Show</h2>
       <section>
-        <TransactionDetails />
+        <TransactionDetail />
       </section>
     </div>
   );

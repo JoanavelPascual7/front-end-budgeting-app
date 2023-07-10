@@ -1,5 +1,5 @@
 import TransactionNewForm from "../Components/TransactionNewForm";
-import "../Components/TransactionNewForm.css"; // Import the CSS file for TransactionNewForm
+// import "../Components/TransactionNewForm.css"; 
 
 function New() {
   return (
