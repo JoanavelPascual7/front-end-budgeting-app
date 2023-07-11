@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import axios from "axios";
 
 function TransactionNewForm() {
+    const navigate = useNavigate(); 
   const [transaction, setTransaction] = useState({
     item_name: "",
     amount: 0,
@@ -21,13 +23,15 @@ function TransactionNewForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:4000/transactions", transaction) // Update the URL to include the backend server's URL and port
+      .post("http://localhost:4000/transactions", transaction)
       .then((response) => {
-        console.log(response.data);
-        // Handle success (e.g., show success message, redirect, etc.)
+        const newTransactionId = response.data.id;
+        navigate(`/transactions/${newTransactionId}`);
       })
       .catch((error) => console.error(error));
   };
+  
+  
   
 
   return (
