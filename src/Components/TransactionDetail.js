@@ -3,32 +3,59 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function TransactionDetail() {
-  const { index } = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
-  const [Transaction, setTransaction] = useState(null);
+  const [transaction, setTransaction] = useState(null);
 
   useEffect(() => {
     axios
-      .get(`/transactions/${index}`)
+      .get(`/transactions/${id}`)
       .then((response) => setTransaction(response.data))
       .catch((error) => console.error(error));
-  }, [index]);
+  }, [id]);
+  
 
   const handleDelete = () => {
     axios
-      .delete(`/transactions/${index}`)
+      .delete(`/transactions/${id}`)
       .then(() => {
         navigate("/transactions");
       })
       .catch((error) => console.error(error));
   };
 
-  if (!Transaction) {
+  if (!transaction) {
     return <div>Loading...</div>;
   }
 
   return (
-    {/* Your JSX code goes here */}
+    <div className="transaction-detail">
+      <h2>Transaction Detail</h2>
+      <div>
+        <label>ID:</label> {transaction.id}
+      </div>
+      <div>
+        <label>Item Name:</label> {transaction.item_name}
+      </div>
+      <div>
+        <label>Amount:</label> {transaction.amount}
+      </div>
+      <div>
+        <label>Date:</label> {transaction.date}
+      </div>
+      <div>
+        <label>From:</label> {transaction.from}
+      </div>
+      <div>
+        <label>Category:</label> {transaction.category}
+      </div>
+      <div>
+        <Link to={`/transactions/${id}/edit`}>Edit</Link>
+      </div>
+      <div>
+        <button onClick={handleDelete}>Delete</button>
+      </div>
+    </div>
   );
 }
 

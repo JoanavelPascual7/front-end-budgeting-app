@@ -2,20 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Transaction({ transaction, index }) {
-  console.log(transaction); // check console
-
   return (
     <tr className="transaction">
+      <td>{transaction.id}</td>
+      <td>{transaction.item_name}</td>
+      <td>{transaction.amount}</td>
+      <td>{transaction.date}</td>
+      <td>{transaction.from}</td>
+      <td>{transaction.category}</td>
       <td>
-        {transaction.mistakesWereMadeToday ? (
-          <span>💥</span>
-        ) : (
-          <span>&nbsp; &nbsp; &nbsp;</span>
-        )}
-      </td>
-      <td>{transaction.captainName}</td>
-      <td>
-        <Link to={`/transactions/${index}`}>{transaction.title}</Link>
+        <Link to={`/transactions/${index}`}>View</Link>
       </td>
     </tr>
   );

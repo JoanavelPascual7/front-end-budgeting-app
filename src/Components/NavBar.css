@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch&family=Delicious+Handrawn&family=Gochi+Hand&display=swap');
+
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #000000, #222222);
+  padding: 10px;
+}
+
+.navbar-title {
+    font-family: 'Gochi Hand', cursive;
+    font-size: 50px;
+    margin-right: 20px;
+    color: #eee;
+    padding: 5px;
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.7),
+                 0 0 10px rgba(255, 255, 255, 0.5),
+                 0 0 20px rgba(255, 255, 255, 0.3),
+                 0 0 40px rgba(255, 255, 255, 0.2);
+    -webkit-text-stroke: 1px black;
+    -webkit-text-fill-color: white;
+  }
+  
+
+.navbar-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-item {
+  margin-left: 10px;
+}
+
+.navbar-link {
+    text-decoration: none;
+    font-family: 'Gochi Hand', cursive;
+    font-size: 26px;
+    color: #333;
+    -webkit-text-stroke: 1px white;
+  }
+
+
+
+.navbar-link:hover {
+  color: purple;
+  transition: background-color 0.3s ease;
+}
