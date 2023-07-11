@@ -6,7 +6,7 @@ function Home() {
     <div className="Home">
       <h2>💰📈💵📊</h2>
       <h3>Track Your Finances</h3>
-      <Transactions />
+      {/* <Transactions /> */}
     </div>
   );
 }

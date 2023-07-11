@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
+import "src/Components/TransactionEditForm.css"
+
 function TransactionEditForm() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -15,7 +17,7 @@ function TransactionEditForm() {
 
   useEffect(() => {
     axios
-      .get(`/transactions/${id}`)
+      .get(`http://localhost:4000/transactions/${id}`)
       .then((response) => {
         setTransaction(response.data);
       })
@@ -33,7 +35,7 @@ function TransactionEditForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .put(`/transactions/${id}`, transaction)
+      .put(`http://localhost:4000/transactions/${id}`, transaction)
       .then((response) => {
         console.log(response.data);
         // Handle success (e.g., show success message, redirect, etc.)

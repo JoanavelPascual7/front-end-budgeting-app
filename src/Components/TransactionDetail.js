@@ -9,15 +9,14 @@ function TransactionDetail() {
 
   useEffect(() => {
     axios
-      .get(`/transactions/${id}`)
+      .get(`http://localhost:4000/transactions/${id}`)
       .then((response) => setTransaction(response.data))
       .catch((error) => console.error(error));
   }, [id]);
-  
 
   const handleDelete = () => {
     axios
-      .delete(`/transactions/${id}`)
+      .delete(`http://localhost:4000/transactions/${id}`)
       .then(() => {
         navigate("/transactions");
       })
@@ -54,6 +53,9 @@ function TransactionDetail() {
       </div>
       <div>
         <button onClick={handleDelete}>Delete</button>
+      </div>
+      <div>
+        <Link to="/transactions">Back to Index</Link>
       </div>
     </div>
   );

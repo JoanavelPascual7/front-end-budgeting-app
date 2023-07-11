@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import Transaction from "../Components/Transaction";
 
 function Index() {
   const [transactions, setTransactions] = useState([]);
@@ -13,36 +13,11 @@ function Index() {
   }, []);
 
   return (
-    <div className="Index">
-      <h2>Index</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Item Name</th>
-            <th>Amount</th>
-            <th>Date</th>
-            <th>From</th>
-            <th>Category</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {transactions.map((transaction) => (
-            <tr key={transaction.id}>
-              <td>{transaction.id}</td>
-              <td>{transaction.item_name}</td>
-              <td>{transaction.amount}</td>
-              <td>{transaction.date}</td>
-              <td>{transaction.from}</td>
-              <td>{transaction.category}</td>
-              <td>
-                <Link to={`/transactions/${transaction.id}`}>View</Link>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="TransactionIndex">
+      <h2>Transactions</h2>
+      {transactions.map((transaction, index) => (
+        <Transaction key={transaction.id} transaction={transaction} index={index} />
+      ))}
     </div>
   );
 }

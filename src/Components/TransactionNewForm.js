@@ -36,7 +36,6 @@ function TransactionNewForm() {
 
   return (
     <div className="transaction-new-form">
-      <h2>Create New Transaction</h2>
       <form onSubmit={handleSubmit}>
         <label>
           Item Name:
