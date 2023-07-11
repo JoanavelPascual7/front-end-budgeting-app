@@ -11,7 +11,7 @@ function Transaction({ transaction, index }) {
       <td>{transaction.from}</td>
       <td>{transaction.category}</td>
       <td>
-        <Link to={`/transactions/${index}`}>View</Link>
+      <Link to={`/transactions/${transaction.id}`}>View</Link>
       </td>
     </tr>
   );

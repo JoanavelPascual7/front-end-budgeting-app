@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Transaction from "../Components/Transaction";
+import "./Index.css";
 
 function Index() {
   const [transactions, setTransactions] = useState([]);
@@ -14,10 +15,25 @@ function Index() {
 
   return (
     <div className="TransactionIndex">
-      <h2>Transactions</h2>
-      {transactions.map((transaction, index) => (
-        <Transaction key={transaction.id} transaction={transaction} index={index} />
-      ))}
+      <h2 className="transaction-heading">Transactions</h2>
+      <table className="transaction-list">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Item Name</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>From</th>
+            <th>Category</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {transactions.map((transaction, index) => (
+            <Transaction key={transaction.id} transaction={transaction} index={index} />
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

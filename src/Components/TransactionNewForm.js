@@ -2,8 +2,10 @@ import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import axios from "axios";
 
+import "./TransactionNewForm.css";
+
 function TransactionNewForm() {
-    const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const [transaction, setTransaction] = useState({
     item_name: "",
     amount: 0,
@@ -20,19 +22,24 @@ function TransactionNewForm() {
     }));
   };
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const formattedDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+    return formattedDate;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    const formattedDate = formatDate(transaction.date);
+    const newTransaction = { ...transaction, date: formattedDate };
     axios
-      .post("http://localhost:4000/transactions", transaction)
+      .post("http://localhost:4000/transactions", newTransaction)
       .then((response) => {
         const newTransactionId = response.data.id;
         navigate(`/transactions/${newTransactionId}`);
       })
       .catch((error) => console.error(error));
   };
-  
-  
-  
 
   return (
     <div className="transaction-new-form">

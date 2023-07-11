@@ -1,6 +1,7 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./TransactionDetail.css";
 
 function TransactionDetail() {
   const { id } = useParams();
@@ -30,32 +31,32 @@ function TransactionDetail() {
   return (
     <div className="transaction-detail">
       <h2>Transaction Detail</h2>
-      <div>
-        <label>ID:</label> {transaction.id}
+      <div className="transaction-field">
+        <span className="transaction-label">ID:</span> {transaction.id}
       </div>
-      <div>
-        <label>Item Name:</label> {transaction.item_name}
+      <div className="transaction-field">
+        <span className="transaction-label">Item Name:</span>{" "}
+        {transaction.item_name}
       </div>
-      <div>
-        <label>Amount:</label> {transaction.amount}
+      <div className="transaction-field">
+        <span className="transaction-label">Amount:</span> {transaction.amount}
       </div>
-      <div>
-        <label>Date:</label> {transaction.date}
+      <div className="transaction-field">
+        <span className="transaction-label">Date:</span> {transaction.date}
       </div>
-      <div>
-        <label>From:</label> {transaction.from}
+      <div className="transaction-field">
+        <span className="transaction-label">From:</span> {transaction.from}
       </div>
-      <div>
-        <label>Category:</label> {transaction.category}
+      <div className="transaction-field">
+        <span className="transaction-label">Category:</span>{" "}
+        {transaction.category}
       </div>
-      <div>
-        <Link to={`/transactions/${id}/edit`}>Edit</Link>
+      <div className="transaction-action">
+        <Link to={`/transactions/${id}/edit`} className="edit-link">Edit</Link>
+        <button onClick={handleDelete} className="delete-button">Delete</button>
       </div>
-      <div>
-        <button onClick={handleDelete}>Delete</button>
-      </div>
-      <div>
-        <Link to="/transactions">Back to Index</Link>
+      <div className="transaction-action">
+        <Link to="/transactions" className="back-link">Back to Index</Link>
       </div>
     </div>
   );

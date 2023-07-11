@@ -1,0 +1,44 @@
+.TransactionIndex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .transaction-list {
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  .transaction-list th,
+  .transaction-list td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .transaction-list th {
+    font-weight: bold;
+  }
+  
+  .transaction-list td:last-child {
+    text-align: center;
+  }
+  
+  .transaction-list td a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .transaction-list td a:hover {
+    text-decoration: underline;
+  }
+  
+  .transaction-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  

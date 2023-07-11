@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+
+import "./Transactions.css"
+
 function Transactions() {
   const [transactions, setTransactions] = useState([]);
 

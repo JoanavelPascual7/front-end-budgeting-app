@@ -1,10 +1,12 @@
 import React from "react";
 import TransactionDetail from "../Components/TransactionDetail";
 
+import "./Show.css";
+
 function Show() {
   return (
-    <div className="Show">
-      <h2>Show</h2>
+    <div className="show-container">
+      <h2 className="show-heading">Show</h2>
       <TransactionDetail />
     </div>
   );
