@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
-
-
 function TransactionEditForm() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -32,13 +30,20 @@ function TransactionEditForm() {
     }));
   };
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const formattedDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+    return formattedDate;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    const formattedDate = formatDate(transaction.date);
+    const updatedTransaction = { ...transaction, date: formattedDate };
     axios
-      .put(`http://localhost:4000/transactions/${id}`, transaction)
+      .put(`http://localhost:4000/transactions/${id}`, updatedTransaction)
       .then((response) => {
         console.log(response.data);
-        // Handle success (e.g., show success message, redirect, etc.)
         navigate(`/transactions/${id}`);
       })
       .catch((error) => console.error(error));
