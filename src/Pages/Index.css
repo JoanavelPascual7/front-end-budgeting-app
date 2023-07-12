@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    margin-top: 190px; /* Adjust the value as needed */
   }
   
   .transaction-list {

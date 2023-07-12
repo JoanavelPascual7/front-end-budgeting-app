@@ -1,6 +1,8 @@
 import React from "react";
 import TransactionNewForm from "../Components/TransactionNewForm";
 
+import "./New.css"
+
 function New() {
   return (
     <div className="New">
